@@ -1,0 +1,21 @@
+
+#include <stdio.h>
+
+int main() {
+    int a[]={12,45,75,85,65,25};
+    int num, i, found=0;
+    printf("enter the number to be searched : ");
+    scanf("%d", &num);
+    for(i=0;i<=5;i++){
+        if(a[i]==num){
+            printf("number at positioned %d", i);
+            found=1;
+            break;
+        }
+    }
+    if(found==0){
+        printf("number not found!");
+    }
+
+    return 0;
+}
