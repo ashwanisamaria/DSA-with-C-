@@ -1,0 +1,35 @@
+void AddAtMid(int data,int pos){
+    if(pos==1){
+        AddAtBeg(data);
+    }
+    else{
+        
+    Node*newnode,*temp;
+    int i;
+    newnode=(Node*)malloc(sizeof(Node));
+    if(newnode==NULL){
+        printf("unable to allocate the memory! ");
+    }
+    else{
+        newnode->data=data;
+        newnode->next=NULL;
+        temp=head;
+    }
+    for(i=2;i<=pos-1;i++){
+        temp=temp->next;
+        if(temp==NULL){
+            break;
+        }
+        
+    }
+    if(temp!=NULL){
+        newnode->next=temp->next;
+        temp->next=newnode;
+        printf("node is inserted successfully ...");
+        
+    }
+    else{
+        printf("UNABLE TO INSERT DATA AT THE GIVEN POSITION !");
+    }
+}
+    }
