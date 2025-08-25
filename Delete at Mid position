@@ -1,0 +1,30 @@
+void DelAtMid(int position){
+    Node*prevnode,*todelete;                        //Delete At Mid
+    int i;
+    if(head==NULL){
+        printf("list is empty!");
+    }
+    else {
+        todelete=head;
+        prevnode=head;
+    for(i=2;i<=position;i++){
+        prevnode=todelete;
+        todelete=todelete->next;
+        if(todelete==NULL){
+            break;
+        }
+    }
+    if(todelete!=NULL){
+        if(todelete==head){
+            head=head->next;
+        }
+        
+        prevnode->next=todelete->next;    
+    todelete->next=NULL;
+    free(todelete);
+    }
+    
+    }
+    traverselist();
+    printf("\ndeleted Successfully...\n");
+}
