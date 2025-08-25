@@ -1,0 +1,14 @@
+void Reverselist(){
+    Node*currentnode,*temp;
+    currentnode=head;                           //Reverse the list
+    while(currentnode!=NULL){
+        temp=currentnode->next;
+        currentnode->next=currentnode->prev;
+        currentnode->prev=temp;
+        currentnode=temp;
+    }
+    temp=head;
+    head=last;
+    last=temp;
+    traverselist();
+}
