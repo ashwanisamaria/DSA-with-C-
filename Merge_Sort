@@ -1,0 +1,59 @@
+
+#include <stdio.h>
+#define MAX 20
+void mergesort(int arr[], int beg, int end);
+void merge(int arr[], int b1, int e1, int e2);
+
+
+int main() {
+   int arr[]={12,52,78,96,25,36,20,14,10,32};
+   int i;
+   printf("\nInitial array\n");
+   for(i=0;i<=9;i++){
+       printf("%d\t",arr[i]);
+   }
+   mergesort(arr,0,9);
+   printf("\nSorted array\n");
+   for(i=0;i<=9;i++){
+       printf("%d\t",arr[i]);
+   }
+
+    return 0;
+}
+
+void merge(int arr[],int b1,int e1,int e2){
+    int b2=e1+1;
+    int i,j,k;
+    int c[MAX];
+    i=b1; k=b1; j=b2;
+    while(i<=e1 && j<=e2){
+        if(arr[i]<arr[j]){
+            c[k++]=arr[i++];
+        }
+        else{
+            c[k++]=arr[j++];
+        }
+    }
+    if(i<=e1){
+        for(;i<=e1;i++,k++){
+            c[k]=arr[i];
+        }
+    }
+    else{
+        for(; j<=e2;j++,k++){
+            c[k]=arr[j];
+        }
+    }
+    for(i=b1;i<=e2;i++){
+        arr[i]=c[i];
+    }
+}
+void mergesort(int arr[], int beg,int end){
+    if(beg==end){
+        return;
+    }
+    int mid=(beg+end)/2;
+    mergesort(arr,beg,mid);
+    mergesort(arr,mid+1,end);
+    merge(arr,beg,mid,end);
+}
