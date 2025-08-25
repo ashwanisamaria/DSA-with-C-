@@ -1,0 +1,25 @@
+void delAtEnd(){
+    Node*todelete,*secondlastnode;
+    if(head==NULL){
+        printf("List is empty !");
+    }
+    else{
+        todelete=head;
+        secondlastnode=head;
+        
+        while(todelete->next!=NULL){
+            secondlastnode=todelete;
+            todelete=todelete->next;
+        }
+        if(todelete==head){
+            head=NULL;
+        }
+        else{
+            secondlastnode->next=NULL;
+        }
+        free(todelete);
+    }
+    traverselist();
+    printf("\ndata deleted successfully...\n");
+    
+}
