@@ -1,0 +1,13 @@
+void AddAtBeg(int data){
+    Node*newnode;
+    newnode=(Node*)malloc(sizeof(Node));
+    if(newnode==NULL){
+        printf("unable to allocate the memory !");
+    }
+    else{
+        newnode->data=data;
+        newnode->next=head;
+        head=newnode;
+        printf("insertion successfully ");
+    }
+}
