@@ -1,0 +1,17 @@
+void AddAtEnd(int data){
+    Node*currnode,*temp;
+    temp=(Node*)malloc(sizeof(Node));
+    temp->data=data;
+    temp->next=NULL;
+    if(head==NULL){
+        head=temp;
+        
+    }
+    else{
+        currnode=head;
+        while(currnode->next!=NULL){
+            currnode=currnode->next;
+        }
+        currnode->next=temp;	
+    }
+}
