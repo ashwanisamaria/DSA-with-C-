@@ -1,0 +1,76 @@
+#include <stdio.h>
+#include<stdlib.h>
+typedef struct node{
+    int data;
+    struct node *prev,*next;
+    
+}Node;
+Node*head,*last;
+void createlist(int n);
+void Reverselist();
+void traverselist();
+
+int main() {
+    int n;
+    head=NULL,last=NULL;
+    printf("enter the number : ");
+    scanf("%d", &n);
+    createlist(n);
+    printf("\nList of data\n");
+    traverselist();
+    printf("\nReverse list\n");
+    Reverselist();
+
+    return 0;
+}
+
+void createlist(int n){
+    Node*newnode;
+    int data,i;                                     //Create the list
+    head=(Node*)malloc(sizeof(Node));
+    if(head!=NULL){
+        printf("enter the data of node 1 : ");
+        scanf("%d",&data);
+        
+        head->data=data;
+        head->prev=NULL;
+        head->next=NULL;
+        last=head;
+        for(i=2;i<=n;i++){
+            newnode=(Node*)malloc(sizeof(Node));
+            if(newnode!=NULL){
+                printf("enter the data of node %d : ",i);
+                scanf("%d", &data);
+                newnode->data=data;
+                newnode->prev=last;
+                newnode->next=NULL;
+                last->next=newnode;
+                last=newnode;
+            }
+            else{
+                printf("unable to allocate the memory !");
+                break;
+            }
+            
+        }
+    printf("\nDOUBLY LINKED LIST CREATED SUCCESSFULLY\n");
+    
+    }
+    else{
+        printf("unable to allocate memory!");
+    }
+}
+
+void traverselist(){
+    Node*temp;
+    if(temp==NULL){
+        printf("list is empty!");
+    }                                           //Traverse the list
+    temp=head;
+    while(temp!=NULL){
+        printf("Data = %d\n ", temp->data);
+        temp=temp->next;
+
+
+    }
+}
