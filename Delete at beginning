@@ -1,0 +1,13 @@
+void delAtBeg(){
+    Node*toDelete;
+    if(head==NULL){
+        printf("\nList is empty !");
+    }
+    else{
+        toDelete=head;
+        head=head->next;
+        printf("\nthe data is deleted = %d\n", toDelete->data);
+        free(toDelete);
+        traverselist();
+    }
+}
