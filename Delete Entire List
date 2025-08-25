@@ -1,0 +1,11 @@
+void Deletelist(){
+    Node*temp;
+    while(head!=NULL){                              //Delete Entire List
+        temp=head;
+        head=head->next;
+        free(temp);
+    }
+        traverselist();
+        printf("WHOLE LIST DELETED!");
+    
+}
