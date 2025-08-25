@@ -1,0 +1,28 @@
+
+#include <stdio.h>
+
+int main() {
+    int a[]={12,54,14,35,65,85};
+    int i,j,temp;
+    printf("array elements : ");
+    for(i=0;i<=5;i++){
+        printf("%d\t", a[i]);
+    }
+    
+    for(i=0;i<5-1;i++){
+        for(j=0;j<5-i-1;j++){
+            if(a[j]>a[j+1]){
+                temp=a[j+1];
+                a[j+1]=a[j];
+                a[j]=temp;
+            }
+        }
+    }
+    
+    printf("\nafter sorting : ");
+    for(i=0;i<=5;i++){
+        printf("%d\t", a[i]);
+    }
+
+    return 0;
+}
